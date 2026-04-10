@@ -118,7 +118,7 @@ Vous pouvez vous aider du Petstore (https://petstore.swagger.io/) ainsi que de S
 Exporter la collection Postman puis l'ajouter à la racine de votre projet.
 Pousser l'ensemble de vos travaux (collection Postman comprise) sur votre repo distant.
 
-**⚠️ Travaux minimal à rendre sur votre repo Git pour le TD1 ⚠️** 
+**⚠️ Travail minimal à rendre sur votre repo Git pour le TD1 ⚠️** 
 - **Collection postman** fonctionnelle avec les 5 endpoints :
   - GET /tasks/{id}
   - GET /tasks
