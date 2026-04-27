@@ -27,7 +27,7 @@ Contrôler vos versions
 Liens :
 - https://jdk.java.net/java-se-ri/21 (téléchargement JDK)
 - https://maven.apache.org/download.cgi (téléchargement Maven)
-- https://github.com/join (compte Github Maven)
+- https://github.com/join (compte Github)
 ---
 
 ## 🧭 Étapes du TD
