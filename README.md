@@ -37,7 +37,7 @@ Liens :
   - https://about.gitlab.com/fr-fr/blog/what-is-git/
   - https://docs.gitlab.com/tutorials/make_first_git_commit/  
     ⚠️ **Sautez** la section *Create a sample project* (le dépôt existe déjà).
-2. **Créer un fork du repository https://github.com/fmillerwork/Polytech-Nancy-TD-1-backend**
+2. **Créer un fork du repository https://github.com/fmillerwork/Polytech-Nancy-TD-1-backend** (pensez à décocher `Copy the master branch only` !!)
 3. **Cloner en local votre repository en HTTPS** *(pas en SSH)* :
   - Ouvrez **Git Bash** dans le dossier où vous voulez travailler.
   - Remplacez `URL_DU_REPO` par l’URL HTTPS.
@@ -54,6 +54,7 @@ Liens :
 ---
 
 ### Étape 1 — Lire et comprendre le projet
+- **Checkout sur la branche `td-1/practice`**
 - Parcourez et découvrez le projet.
 - Repérez le port (par défaut `8080`).
 
