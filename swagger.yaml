@@ -14,6 +14,27 @@ tags:
 
 paths:
     /tasks:
+        delete:
+            tags: [ tasks ]
+            summary: Supprimer toutes les tâches
+            operationId: deleteAllTasks
+            responses:
+                '204':
+                    description: Toutes les tâches supprimées
+
+        /tasks/count:
+            get:
+                tags: [ tasks ]
+                summary: Compter les tâches
+                operationId: countTasks
+                responses:
+                    '200':
+                        description: Nombre total de tâches
+                        content:
+                            text/plain:
+                                schema:
+                                    type: integer
+                                    example: 3
         get:
             tags: [ tasks ]
             summary: Récupérer l'ensemble des tâches

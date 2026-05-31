@@ -41,7 +41,20 @@ public class Application {
         String method = exchange.getRequestMethod();
         String path = exchange.getRequestURI().getPath();
         String query = exchange.getRequestURI().getQuery();
+        // DELETE /tasks (supprime toutes les tâches)
+        if ("DELETE".equals(method) && "/tasks".equals(path)) {
+            log.debug("Deleting all tasks");
+            dao.deleteAll();
+            sendResponse(exchange, 204, null);
+            return;
+        }
 
+        // GET /tasks/count
+        if ("GET".equals(method) && "/tasks/count".equals(path)) {
+            int count = dao.count();
+            sendResponse(exchange, 200, String.valueOf(count));
+            return;
+        }
         //region Manage GET /tasks (with optional todo-only filter)
         if ("GET".equals(method) && "/tasks".equals(path)) {
             Collection<Task> tasks = dao.findAll();
@@ -65,6 +78,7 @@ public class Application {
         if ("POST".equals(method) && "/tasks".equals(path)) {
             Task input = JsonUtils.deserialize(new String(exchange.getRequestBody().readAllBytes(), UTF_8), Task.class);
             Task createdTask = dao.save(input);
+            log.debug("Task created with id={}", createdTask.id());
 
             exchange.getResponseHeaders().add("Location", "/tasks/" + createdTask.id());
             sendResponse(exchange, 201, JsonUtils.serialize(createdTask));
@@ -91,6 +105,7 @@ public class Application {
             // DELETE /tasks/{id}
             if ("DELETE".equals(method)) {
                 boolean deleted = dao.delete(id);
+                log.debug("All tasks deleted");
                 if (deleted) {
                     sendResponse(exchange, 204, null);
                 } else {

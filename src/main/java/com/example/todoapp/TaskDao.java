@@ -27,6 +27,20 @@ public class TaskDao {
         storage.put(task.id(), task);
         return task;
     }
+    /**
+     * Delete all tasks.
+     */
+    public void deleteAll() {
+        storage.clear();
+    }
+
+    /**
+     * Count all tasks.
+     * @return number of tasks.
+     */
+    public int count() {
+        return storage.size();
+    }
 
     /**
      * Retrieve {@link Task} model by id.
