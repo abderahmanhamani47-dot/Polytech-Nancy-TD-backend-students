@@ -8,15 +8,16 @@ import java.io.IOException;
 
 /**
  * JSON serialization and deserialization utility class.
+ *
+ * @author StudentMapper
+ * @version 1.0
  */
 public final class JsonUtils {
 
     private static final ObjectMapper MAPPER = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    /**
-     * Private constructor.
-     */
+    /** Private constructor — utility class, not instantiable. */
     private JsonUtils() {
     }
 
@@ -25,6 +26,7 @@ public final class JsonUtils {
      *
      * @param o object to serialize.
      * @return JSON representation of the object.
+     * @throws JsonProcessingException if serialization fails.
      */
     public static String serialize(Object o) throws JsonProcessingException {
         return MAPPER.writeValueAsString(o);
@@ -32,10 +34,12 @@ public final class JsonUtils {
 
     /**
      * Deserialize JSON to Java object.
-     * @param json  JSON to deserialize
-     * @param clazz Java type of the object to deserialize
-     * @param <T>   Type of the deserialized object
-     * @return      Deserialized object
+     *
+     * @param json  JSON string to deserialize.
+     * @param clazz target Java type.
+     * @param <T>   type of the deserialized object.
+     * @return deserialized object.
+     * @throws IOException if deserialization fails.
      */
     public static <T> T deserialize(String json, Class<T> clazz) throws IOException {
         return MAPPER.readValue(json, clazz);
